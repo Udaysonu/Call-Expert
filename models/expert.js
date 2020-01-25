@@ -16,12 +16,12 @@ var expertSchema = new Schema({
   },
   pin:{
     type:String,
-    required:true
   },
   field:{
       type:String,
       required:true
   },
+   
   phone:{
     type:String,
     required:true

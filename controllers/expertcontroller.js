@@ -12,15 +12,10 @@ const Location=require('../models/locations');
 
 
 module.exports.updatepage=function(req,res){
+    req.flash('success','welcome to update page')
     res.render('updatepage');
 }
  
 module.exports.create=function(req,res){
-
-    Expert.create(req.body,function(err){
-        if(err){
-            return res.redirect("back");
-        }
-        return res.redirect("/");
-    })
+     return
 }

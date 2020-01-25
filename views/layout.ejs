@@ -1,21 +1,41 @@
-<html><head>
+<html>
+<head>
     <title>Call eXpert</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/fdb222da35.js" crossorigin="anonymous"></script>
     <!--Fontawesome CDN-->
+    <!-- noty -->
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js'></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <%-style%>
+    
     <%-style%>
     <link href="/css/signuser.css" type='text/css' rel="stylesheet">
     
 </head>
 <body>
 <div><%-include("_header")%></div>
-
+sd<%=flash.success%>-- <%=flash.error%>
+ <%if(flash.success && flash.success.length>0){%>
+    <h3>
+        <%=flash.success%>
+    </h3>
+<%}%>
 <%-body%>
-
-
+ 
+<script>
+<%if(flash.success && flash.success.length>0){%>
+    new Noty({
+        theme:'relax',
+        text:'<%=flash.success%>',
+        type:"success",
+        layout:'topRight',
+        timeout:1500
+    }).show()  
+<%}%>
+</script>
 </body>
+
 </html>

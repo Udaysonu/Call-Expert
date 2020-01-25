@@ -23,7 +23,9 @@ maid:[{type: mongoose.Types.ObjectId,
         plumber:[{type: mongoose.Types.ObjectId,
           ref:'experts'}],
           painter:[{type: mongoose.Types.ObjectId,
-            ref:'experts'}]
+            ref:'experts'}],
+            driver:[{type: mongoose.Types.ObjectId,
+              ref:'experts'}]
 
 },{timestamps:true});
 var expert = mongoose.model('locations', expertSchema);

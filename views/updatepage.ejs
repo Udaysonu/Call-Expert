@@ -1,48 +1,50 @@
 <link rel='stylesheet' type='text/css' href='/css/signuser.css'>
 
-<%if(locals.expert){%>    
+<%if(locals.user){%>    
 <div id='outer' style='height:auto '> 
         <div id='container'>
             <form action='/update/updateexpert' method='post' enctype="multipart/form-data">
                 <div ><h1 style='color:white'> Profile</h1></div>              
                     <div id='profile-pic' style='width:100px ; height:100px;background-color: wheat;'>
-                        <img width="100" height="100" src='<%=expert.avatar%>'>
+                        <img width="100" height="100" src='<%=user.avatar%>'>
                         
                     </div>
                     <input  type='file' placeholder='change Profile Pic' name='avatar'>
                 <div class='input'>
                     <i class="fas fa-user"></i>
-                    <input name='name' placeholder="Username" value='<%=expert.name%>' type='text' >
+                    <input name='name' placeholder="Username" value='<%=user.name%>' type='text' >
                 </div>
             <div class='input'>
                 <i class="fas fa-at"></i>
-                <input name='email' Placeholder='Email' value='<%=expert.email%>' type='email' >
+                <input name='email' Placeholder='Email' value='<%=user.email%>' type='email' >
             </div>
             <div class='input'>
                 <i class="fas fa-phone"></i>
-                <input name='phone' value='<%=expert.phone%>' placeholder="Phone Number" type='text' >
+                <input name='phone' value='<%=user.phone%>' placeholder="Phone Number" type='text' >
             </div>
             <div class='input'>
                  
-                <i class="fas fa-key"></i></i> <input type='text' value='<%=expert.password%>' placeholder='change password' name='password'>
+                <i class="fas fa-key"></i></i> <input type='text' value='<%=user.password%>' placeholder='change password' name='password'>
             </div> 
              
             <div class='input'>
                 <i class="fas fa-marker"></i>
-                <input name='location' value='<%=expert.location%>' placeholder='City' type='text' >
+                <input name='location' value='<%=user.location%>' placeholder='City' type='text' >
+                <input name='locationold' type='text' value='<%=user.location%>' hidden  > 
             </div>
             <div class='input'>
                 <i class="fas fa-user"></i>
-                <input name='pin' value='<%=expert.pin%>' placeholder='City Pincode' type='text' >
+                <input name='pin' value='<%=user.pin%>' placeholder='City Pincode' type='text' >
             </div>
-            <div class='input'>
+            <div class='input'>Occupation
                 <i class="fas fa-geo"></i>
-                <select value='<%=expert.field%>' name='field' >
-                    <option>Select</option>
+                <input type='text' name='fieldold' hidden disabled value='<%=user.field%>' > 
+                <select  name='field' >
+                    <option selected><%=user.field%></option>
                     <option> Maid </option>
                     <option> Cook</option>
                     <option> Nurse  </option>
-                    <option> Electronic </option>
+                    <option> Electronics </option>
                     <option>Carpenter</option>
                     <option>Painter</option>
                     <option>Plumber</option>
@@ -54,33 +56,16 @@
 
 
 
- 
-<%}else if(locals.user){%>
 
-<div id='outer'>
-<div id='container'>
-	<form action='/auth/createuser' method='post'>
-        <h1 style='color:white'>Update Profile</h1>
-        
-           <div style="width:100px;height:100px;background-color: thistle;"><img src='asdfasdf'></div>
-        
-		<div class='input'>
-			<i class="fas fa-user"></i>
-			<input name='name' value='<%=user.name%>' type='text' >
-		</div>
-	<div class='input'>
-		<i class="fas fa-envelope"></i>
-		<input name='email' value='<%=user.email%>' type='email' >
-	</div>
-	<div class='input'>
-		 
-		<i class="fas fa-key"></i></i> <input type='text' value='user.password'  name='password'>
-	</div> 
-	 
-	<div class='input'><button>update</button></div>
-</form>
-</div>
-</div>
-<%}else{%>
-Please sign in
-<%}%>
+
+ <%}else{%>
+ 
+ 
+    <h1>    Please sign in     </h1>
+ 
+
+ <%}%>
+
+
+
+

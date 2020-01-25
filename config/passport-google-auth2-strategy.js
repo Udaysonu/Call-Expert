@@ -1,7 +1,7 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var crypto=require('crypto');
-const User=require('../models/user');
+const User=require('../models/expert');
 // Use the GoogleStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
 //   credentials (in this case, an accessToken, refreshToken, and Google
@@ -17,7 +17,7 @@ passport.use(new GoogleStrategy({
             return done(err, user);
          }
          else{
-             User.create({name:profile.displayName,email:profile.emails[0].value,
+             User.create({name:profile.displayName,email:profile.emails[0].value,phone:"googlesignin",field:'None',location:'None',
                             password:crypto.randomBytes(20).toString('hex')
                         },function(err,user){
                             return done(null,user);
